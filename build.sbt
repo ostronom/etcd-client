@@ -1,6 +1,6 @@
-val akkaVersion = "2.4.14"
-val akkaHttpVersion = "10.0.0"
-val scalaTestVersion = "2.2.5"
+val akkaVersion = "2.5.4"
+val akkaHttpVersion = "10.0.10"
+val scalaTestVersion = "3.0.1"
 val mockitoVersion = "1.10.19"
 
 

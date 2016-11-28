@@ -6,25 +6,29 @@ import sbtrelease.ReleasePlugin.autoImport._
 
 object Settings {
   lazy val commons = Seq(
-    scalaVersion := "2.11.8",
+    scalaVersion := "2.12.3",
     organization := "me.maciejb.etcd-client",
     description := "etc.d client",
-    homepage := Some(url("https://github.com/maciej/etcd-client")),
+    homepage := Some(url("https://github.com/ostronom/etcd-client")),
     startYear := Some(2016),
-    licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+    licenses := Seq(
+      "Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
   )
 
   lazy val release = Seq(
     isSnapshot <<= isSnapshot or version(_ endsWith "-SNAPSHOT"),
-    bintrayOrganization := Some("maciej"),
-    pomIncludeRepository := { _ => false },
+    bintrayOrganization := Some("dialog"),
+    bintrayRepository := "maven",
+    pomIncludeRepository := { _ =>
+      false
+    },
     publishMavenStyle := true,
     publishArtifact in Test := false,
     //noinspection ScalaUnnecessaryParentheses
     pomExtra := (
       <scm>
-        <url>git@github.com:maciej/etcd-client.git</url>
-        <connection>scm:git:git@github.com:maciej/etcd-client.git</connection>
+        <url>git@github.com:ostronom/etcd-client.git</url>
+        <connection>scm:git:git@github.com:ostronom/etcd-client.git</connection>
       </scm>
         <developers>
           <developer>
@@ -38,7 +42,7 @@ object Settings {
             <url>https://github.com/rkrzewski</url>
           </developer>
         </developers>
-      ),
+    ),
     releasePublishArtifactsAction := PgpKeys.publishSigned.value
   )
 }
