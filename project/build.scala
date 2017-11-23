@@ -6,7 +6,7 @@ import sbtrelease.ReleasePlugin.autoImport._
 
 object Settings {
   lazy val commons = Seq(
-    scalaVersion := "2.12.3",
+    scalaVersion := "2.12.4",
     organization := "me.maciejb.etcd-client",
     description := "etc.d client",
     homepage := Some(url("https://github.com/ostronom/etcd-client")),
